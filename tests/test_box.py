@@ -9,6 +9,7 @@ class TestRender(unittest.TestCase):
 
     def _makeOne(self):
         class DummyBorder(object):
+            space = u' '
             upperleft = u'g'
             upperright = u'r'
             lowerleft = u'm'

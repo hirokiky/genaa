@@ -1,7 +1,5 @@
 #! -*- coding: utf-8 -*-
 class Box(object):
-    space = u' '
-
     min_width = 2
     min_height = 2
 
@@ -20,7 +18,7 @@ class Box(object):
         space_width = self.width - 2
         space_height = self.height - 2
         vertical = self.border.vertical * space_width
-        row = self.border.horizontal + self.space * space_width + self.border.horizontal
+        row = self.border.horizontal + self.border.space * space_width + self.border.horizontal
         return '\n'.join(
             [self.border.upperleft + vertical + self.border.upperright] +
             [row] * space_height +
@@ -29,6 +27,7 @@ class Box(object):
 
 
 class SimpleBorder(object):
+    space = u' '
     upperleft = u'┌'
     upperright = u'┐'
     lowerleft = u'└'
