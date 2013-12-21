@@ -14,4 +14,6 @@ setup(
             'genaa = genaa.commands.main:run',
         ],
     },
+    tests_require=['nose'],
+    test_suite='nose.collector',
 )
