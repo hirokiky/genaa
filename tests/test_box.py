@@ -20,7 +20,7 @@ class TestBox(unittest.TestCase):
         return self._getTarget()(width, height, DummyBorder(), text=text)
 
     def test_body_content(self):
-        actual = self._makeOne(5, 9999, u'01\n23456').body_content
+        actual = self._makeOne(3, 9999, u'01\n23456').body_content
         expected = [u'01',
                     u'234',
                     u'56']
@@ -28,7 +28,7 @@ class TestBox(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_fillup(self):
-        actual = self._makeOne(6, 5).fillup([u'01',
+        actual = self._makeOne(4, 3).fillup([u'01',
                                              u'2345'])
         expected = [u'01  ',
                     u'2345',
@@ -37,7 +37,7 @@ class TestBox(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_render__empty(self):
-        actual = self._makeOne(4, 4).render()
+        actual = self._makeOne(2, 2).render()
         expected = u"""\
 gccr
 h  h
@@ -47,7 +47,7 @@ mccv\
         self.assertEqual(expected, actual)
 
     def test_render__fillup(self):
-        actual = self._makeOne(4, 4, u'1234').render()
+        actual = self._makeOne(2, 2, u'1234').render()
         expected = u"""\
 gccr
 h12h
@@ -57,7 +57,7 @@ mccv\
         self.assertEqual(expected, actual)
 
     def test_render__overflow(self):
-        actual = self._makeOne(4, 4, u'12345').render()
+        actual = self._makeOne(2, 2, u'12345').render()
         expected = u"""\
 gccr
 h12h
@@ -67,7 +67,7 @@ mccv\
         self.assertEqual(expected, actual)
 
     def test_render__enough(self):
-        actual = self._makeOne(4, 4, u'123').render()
+        actual = self._makeOne(2, 2, u'123').render()
         expected = u"""\
 gccr
 h12h
@@ -77,7 +77,7 @@ mccv\
         self.assertEqual(expected, actual)
 
     def test_render__with_2_lines_text(self):
-        actual = self._makeOne(4, 5, u'1\n23456').render()
+        actual = self._makeOne(2, 3, u'1\n23456').render()
         expected = u"""\
 gccr
 h1 h

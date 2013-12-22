@@ -3,8 +3,8 @@ from genaa import utils as genaa_utils
 
 
 class Box(object):
-    min_width = 2
-    min_height = 2
+    min_width = 1
+    min_height = 1
 
     def __init__(self, width, height, border, text=u''):
         if self.min_width > width:
@@ -13,18 +13,10 @@ class Box(object):
         if self.min_height > height:
             raise ValueError('Applied height is too small %s (required %s)',
                              height, self.min_height)
-        self.width = width
-        self.height = height
+        self.body_width = width
+        self.body_height = height
         self.border = border
         self.text = text
-
-    @property
-    def body_width(self):
-        return self.width - 2
-
-    @property
-    def body_height(self):
-        return self.height - 2
 
     @property
     def body_area(self):
