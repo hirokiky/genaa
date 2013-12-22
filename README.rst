@@ -13,11 +13,17 @@ Install genaa by using pip.
 
 Basic Usage
 ---------------
-Now genaa can only generate a box, by specifying --width and --height::
+Now genaa can only generate a box, by specifying --width, --height and --style::
 
     echo -e 'Hello world!\nThis is genaa' | genaa box --width=13 --height=2
     ┌─────────────┐
     │Hello world! │
     │This is genaa│
     └─────────────┘
+
+    $ echo -e 'Hello world!\nThis is genaa' | genaa box --width=13 --height=2 --style=hash
+    ###############
+    #Hello world! #
+    #This is genaa#
+    ###############
 

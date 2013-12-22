@@ -8,7 +8,7 @@ class TestBox(unittest.TestCase):
         return Box
 
     def _makeOne(self, width, height, text=u''):
-        class DummyBorder(object):
+        class DummyStyle(object):
             space = u' '
             upperleft = u'g'
             upperright = u'r'
@@ -17,7 +17,7 @@ class TestBox(unittest.TestCase):
             vertical = u'c'
             horizontal = u'h'
 
-        return self._getTarget()(width, height, DummyBorder(), text=text)
+        return self._getTarget()(width, height, DummyStyle(), text=text)
 
     def test_body_content(self):
         actual = self._makeOne(3, 9999, u'01\n23456').body_content

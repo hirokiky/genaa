@@ -6,7 +6,7 @@ class Box(object):
     min_width = 1
     min_height = 1
 
-    def __init__(self, width, height, border, text=u''):
+    def __init__(self, width, height, style, text=u''):
         if self.min_width > width:
             raise ValueError('Applied width is too small %s (required %s)',
                              width, self.min_width)
@@ -15,7 +15,7 @@ class Box(object):
                              height, self.min_height)
         self.body_width = width
         self.body_height = height
-        self.border = border
+        self.style = style
         self.text = text
 
     @property
@@ -29,21 +29,21 @@ class Box(object):
 
     def fillup(self, content):
         missed_height = self.body_height - len(content)
-        height_filled = content[:self.body_height] + [self.border.space * self.body_width] * missed_height
-        return [row.ljust(self.body_width, self.border.space)
+        height_filled = content[:self.body_height] + [self.style.space * self.body_width] * missed_height
+        return [row.ljust(self.body_width, self.style.space)
                 for row in height_filled]
 
     def render(self):
         body_content = self.fillup(self.body_content)
-        vertical = self.border.vertical * self.body_width
+        vertical = self.style.vertical * self.body_width
         return '\n'.join(
-            [self.border.upperleft + vertical + self.border.upperright] +
-            [self.border.horizontal + row + self.border.horizontal for row in body_content] +
-            [self.border.lowerleft + vertical + self.border.lowerright]
+            [self.style.upperleft + vertical + self.style.upperright] +
+            [self.style.horizontal + row + self.style.horizontal for row in body_content] +
+            [self.style.lowerleft + vertical + self.style.lowerright]
         )
 
 
-class SimpleBorder(object):
+class SimpleStyle(object):
     space = u' '
     upperleft = u'┌'
     upperright = u'┐'
@@ -51,3 +51,19 @@ class SimpleBorder(object):
     lowerright = u'┘'
     vertical = u'─'
     horizontal = u'│'
+
+
+class HashStyle(object):
+    space = u' '
+    upperleft = u'#'
+    upperright = u'#'
+    lowerleft = u'#'
+    lowerright = u'#'
+    vertical = u'#'
+    horizontal = u'#'
+
+
+style_mapping = {
+    'simple': SimpleStyle,
+    'hash': HashStyle,
+}
