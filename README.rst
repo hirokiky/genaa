@@ -15,8 +15,9 @@ Basic Usage
 ---------------
 Now genaa can only generate a box, by specifying --width and --height::
 
-    genaa box --width=4 --height=4
-    ┌──┐
-    │  │
-    │  │
-    └──┘
+    echo -e 'Hello world!\nThis is genaa' | genaa box --width=15 --height=4
+    ┌─────────────┐
+    │Hello world! │
+    │This is genaa│
+    └─────────────┘
+

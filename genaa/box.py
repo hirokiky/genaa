@@ -1,9 +1,12 @@
 #! -*- coding: utf-8 -*-
+from genaa import utils as genaa_utils
+
+
 class Box(object):
     min_width = 2
     min_height = 2
 
-    def __init__(self, width, height, border):
+    def __init__(self, width, height, border, text=u''):
         if self.min_width > width:
             raise ValueError('Applied width is too small %s (required %s)',
                              width, self.min_width)
@@ -13,15 +16,37 @@ class Box(object):
         self.width = width
         self.height = height
         self.border = border
+        self.text = text
+
+    @property
+    def body_width(self):
+        return self.width - 2
+
+    @property
+    def body_height(self):
+        return self.height - 2
+
+    @property
+    def body_area(self):
+        return self.body_width * self.body_height
+
+    @property
+    def body_content(self):
+        return sum((list(genaa_utils.chunks(row, self.body_width))
+                    for row in self.text.split('\n')), [])
+
+    def fillup(self, content):
+        missed_height = self.body_height - len(content)
+        height_filled = content[:self.body_height] + [self.border.space * self.body_width] * missed_height
+        return [row.ljust(self.body_width, self.border.space)
+                for row in height_filled]
 
     def render(self):
-        space_width = self.width - 2
-        space_height = self.height - 2
-        vertical = self.border.vertical * space_width
-        row = self.border.horizontal + self.border.space * space_width + self.border.horizontal
+        body_content = self.fillup(self.body_content)
+        vertical = self.border.vertical * self.body_width
         return '\n'.join(
             [self.border.upperleft + vertical + self.border.upperright] +
-            [row] * space_height +
+            [self.border.horizontal + row + self.border.horizontal for row in body_content] +
             [self.border.lowerleft + vertical + self.border.lowerright]
         )
 

@@ -1,4 +1,5 @@
 import argparse
+import sys
 
 from genaa.commands import box
 
@@ -20,4 +21,4 @@ def run():
     parser = build_parser()
     opt = parser.parse_args()
 
-    print(subcommand_mapping[opt.subcommand](opt))
+    print(subcommand_mapping[opt.subcommand](opt, unicode(sys.stdin.read())))
