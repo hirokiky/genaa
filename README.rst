@@ -1,6 +1,9 @@
 genaa, a AA generator
 ======================
 
+.. image:: https://travis-ci.org/hirokiky/genaa.png?branch=master
+   :target: https://travis-ci.org/hirokiky/genaa
+
 genaa is a command line tool for generating ASCII art.
 
 Install

@@ -1,0 +1,13 @@
+Changes
+----------
+
+0.1 (not available)
+^^^^^^^^^^^^^^^^^^^^^
+Initial release.
+Supporting:
+
+* Rendering boxes with text
+
+  * Auto specifying width and height
+  * Changing style of boxes
+  * Padding
