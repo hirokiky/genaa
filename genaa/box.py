@@ -28,8 +28,8 @@ class Box(object):
                     for row in self.text.split('\n')), [])
 
     def fillup(self, content):
-        missed_height = self.body_height - len(content)
-        height_filled = content[:self.body_height] + [self.style.space * self.body_width] * missed_height
+        missed = self.body_height - len(content)
+        height_filled = content[:self.body_height] + [self.style.space * self.body_width] * missed
         return [row.ljust(self.body_width, self.style.space)
                 for row in height_filled]
 
