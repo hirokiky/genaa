@@ -23,4 +23,4 @@ def run():
     parser = build_parser()
     opt = parser.parse_args()
 
-    print(opt.func(opt, unicode(sys.stdin.read())))
+    print(opt.func(opt, sys.stdin.read()))

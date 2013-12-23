@@ -17,8 +17,6 @@ setup(
     description='genaa, a ASCII Art generator.',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
-            "Programming Language :: Python :: 2",
-            "Programming Language :: Python :: 2.7",
             "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.3",
             "Development Status :: 3 - Alpha",
