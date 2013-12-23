@@ -6,7 +6,7 @@ class Box(object):
     min_width = 1
     min_height = 1
 
-    def __init__(self, style, width=None, height=None, text=u''):
+    def __init__(self, style, width=None, height=None, text=''):
         if width is None:
             self._width_auto = True
         else:
@@ -72,23 +72,23 @@ class Box(object):
 
 
 class SimpleStyle(object):
-    space = u' '
-    upperleft = u'┌'
-    upperright = u'┐'
-    lowerleft = u'└'
-    lowerright = u'┘'
-    vertical = u'─'
-    horizontal = u'│'
+    space = ' '
+    upperleft = '┌'
+    upperright = '┐'
+    lowerleft = '└'
+    lowerright = '┘'
+    vertical = '─'
+    horizontal = '│'
 
 
 class HashStyle(object):
-    space = u' '
-    upperleft = u'#'
-    upperright = u'#'
-    lowerleft = u'#'
-    lowerright = u'#'
-    vertical = u'#'
-    horizontal = u'#'
+    space = ' '
+    upperleft = '#'
+    upperright = '#'
+    lowerleft = '#'
+    lowerright = '#'
+    vertical = '#'
+    horizontal = '#'
 
 
 style_mapping = {
