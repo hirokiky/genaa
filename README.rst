@@ -18,7 +18,7 @@ Basic Usage
 ---------------
 Now genaa can only generate a box::
 
-    echo -e 'Hello world!\nThis is genaa' | genaa box
+    $ echo -en 'Hello world!\nThis is genaa' | genaa box
     ┌─────────────┐
     │Hello world! │
     │This is genaa│
@@ -26,7 +26,7 @@ Now genaa can only generate a box::
 
 You can also specify width and height of the box::
 
-    echo -e 'Hello world!\nThis is genaa' | genaa box --width=20 --height=3
+    $ echo -en 'Hello world!\nThis is genaa' | genaa box --width=20 --height=3
     ┌────────────────────┐
     │Hello world!        │
     │This is genaa       │
@@ -36,7 +36,7 @@ You can also specify width and height of the box::
 And changing the style of the box.
 This example is using `hash` style which is used as comment block in Python::
 
-    $ echo -e 'Hello world!\nThis is genaa' | genaa box --style=hash
+    $ echo -en 'Hello world!\nThis is genaa' | genaa box --style=hash
     ###############
     #Hello world! #
     #This is genaa#
