@@ -1,6 +1,12 @@
 Changes
 ----------
 
+0.2 (not available)
+^^^^^^^^^^^^^^^^^^^^^
+* Rendering table
+
+  * CSV => table ASCII Art.
+
 0.1 (not available)
 ^^^^^^^^^^^^^^^^^^^^^
 Initial release.
