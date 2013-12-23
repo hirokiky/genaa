@@ -15,11 +15,9 @@ class TestBoxCommand(unittest.TestCase):
         out, err = self._callSUT()
         self.assertEqual(b'', err, msg=err.decode('utf-8'))
         self.assertEqual('''\
-┌───┐
-│   │
-│   │
-│   │
-└───┘
+┌─┐
+│ │
+└─┘
 '''.encode('utf-8'), out)
 
     def test__with_input(self):
@@ -28,7 +26,5 @@ class TestBoxCommand(unittest.TestCase):
         self.assertEqual('''\
 ┌───┐
 │mio│
-│   │
-│   │
 └───┘
 '''.encode('utf-8'), out)

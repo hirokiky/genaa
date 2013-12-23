@@ -16,15 +16,27 @@ Install genaa by using pip.
 
 Basic Usage
 ---------------
-Now genaa can only generate a box, by specifying --width, --height and --style::
+Now genaa can only generate a box::
 
-    echo -e 'Hello world!\nThis is genaa' | genaa box --width=13 --height=2
+    echo -e 'Hello world!\nThis is genaa' | genaa box
     ┌─────────────┐
     │Hello world! │
     │This is genaa│
     └─────────────┘
 
-    $ echo -e 'Hello world!\nThis is genaa' | genaa box --width=13 --height=2 --style=hash
+You can also specify width and height of the box::
+
+    echo -e 'Hello world!\nThis is genaa' | genaa box --width=20 --height=3
+    ┌────────────────────┐
+    │Hello world!        │
+    │This is genaa       │
+    │                    │
+    └────────────────────┘
+
+And changing the style of the box.
+This example is using `hash` style which is used as comment block in Python::
+
+    $ echo -e 'Hello world!\nThis is genaa' | genaa box --style=hash
     ###############
     #Hello world! #
     #This is genaa#
