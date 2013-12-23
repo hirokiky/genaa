@@ -13,7 +13,7 @@ class TestBoxCommand(unittest.TestCase):
 
     def test__without_input(self):
         out, err = self._callSUT()
-        self.assertEqual(b'', err, msg=err)
+        self.assertEqual(b'', err, msg=err.decode('utf-8'))
         self.assertEqual('''\
 ┌───┐
 │   │
@@ -22,9 +22,9 @@ class TestBoxCommand(unittest.TestCase):
 └───┘
 '''.encode('utf-8'), out)
 
-    def test__wit_input(self):
+    def test__with_input(self):
         out, err = self._callSUT(b'mio')
-        self.assertEqual(b'', err, msg=err)
+        self.assertEqual(b'', err, msg=err.decode('utf-8'))
         self.assertEqual('''\
 ┌───┐
 │mio│
