@@ -86,7 +86,18 @@ class HashStyle(object):
     horizontal = '#'
 
 
+class ASCIIStyle(object):
+    space = ' '
+    upperleft = '+'
+    upperright = '+'
+    lowerleft = '+'
+    lowerright = '+'
+    vertical = '-'
+    horizontal = '|'
+
+
 style_mapping = {
     'simple': SimpleStyle,
     'hash': HashStyle,
+    'ascii': ASCIIStyle,
 }
