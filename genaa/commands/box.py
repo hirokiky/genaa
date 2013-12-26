@@ -6,9 +6,10 @@ from genaa.box import Box, style_mapping
 def apply_arguments(parser):
     parser.add_argument('-t', '--text', dest='text',
                         help='Passing text by argument into box')
-    parser.add_argument('-w', '--width', dest='width', type=int)
-    parser.add_argument('-h,--height', dest='height', type=int)
-    parser.add_argument('-s,--style', dest='style', default='simple', choices=style_mapping.keys())
+    parser.add_argument('-W', '--width', dest='width', type=int)
+    parser.add_argument('-H', '--height', dest='height', type=int)
+    parser.add_argument('-s', '--style', dest='style',
+                        default='simple', choices=style_mapping.keys())
     parser.set_defaults(func=run)
     return parser
 
