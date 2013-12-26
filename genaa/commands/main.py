@@ -23,4 +23,7 @@ def run():
     parser = build_parser()
     opt = parser.parse_args()
 
-    print(opt.func(opt, sys.stdin.read()))
+    if hasattr(opt, 'func'):
+        print(opt.func(opt, sys.stdin.read()))
+    else:
+        parser.print_help()
