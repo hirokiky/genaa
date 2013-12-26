@@ -1,7 +1,11 @@
+import sys
+
 from genaa.box import Box, style_mapping
 
 
 def apply_arguments(parser):
+    parser.add_argument('-t', '--text', dest='text',
+                        help='Passing text by argument into box')
     parser.add_argument('-w', '--width', dest='width', type=int)
     parser.add_argument('-h,--height', dest='height', type=int)
     parser.add_argument('-s,--style', dest='style', default='simple', choices=style_mapping.keys())
@@ -9,7 +13,12 @@ def apply_arguments(parser):
     return parser
 
 
-def run(opt, text):
+def run(opt):
+    if getattr(opt, 'text'):
+        text = opt.text
+    else:
+        text = sys.stdin.read()
+
     box = Box(style_mapping[opt.style],
               width=opt.width, height=opt.height,
               text=text)

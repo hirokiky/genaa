@@ -1,5 +1,4 @@
 import argparse
-import sys
 
 from genaa.commands import box
 
@@ -24,6 +23,6 @@ def run():
     opt = parser.parse_args()
 
     if hasattr(opt, 'func'):
-        print(opt.func(opt, sys.stdin.read()))
+        print(opt.func(opt))
     else:
         parser.print_help()
