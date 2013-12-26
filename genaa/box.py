@@ -1,5 +1,5 @@
 #! -*- coding: utf-8 -*-
-from textwrap import wrap
+from genaa import utils as genaa_utils
 
 
 class Box(object):
@@ -37,10 +37,6 @@ class Box(object):
             return self._width
 
     @property
-    def body_area(self):
-        return self.body_width * self.body_height
-
-    @property
     def body_height(self):
         if self._height_auto:
             return len(self.body_content) or 1
@@ -48,8 +44,17 @@ class Box(object):
             return self._height
 
     @property
+    def body_area(self):
+        return self.body_width * self.body_height
+
+    @property
     def body_content(self):
-        return wrap(self.text, self.body_width)
+        content = self.text.split('\n')
+        if self._width_auto:
+            return content
+        else:
+            return sum((list(genaa_utils.chunks(row, self._width))
+                        for row in content), [])
 
     def render(self):
         missed = self.body_height - len(self.body_content)
