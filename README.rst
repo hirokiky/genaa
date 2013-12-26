@@ -18,6 +18,14 @@ Basic Usage
 ---------------
 Now genaa can only generate a box::
 
+    genaa box --text Hello!
+    ┌──────┐
+    │Hello!│
+    └──────┘
+
+Above example is as one of simple command line tools.
+But, genaa usually behave as a filter command, like this.
+
     $ echo -en 'Hello world!\nThis is genaa' | genaa box
     ┌─────────────┐
     │Hello world! │
