@@ -9,7 +9,7 @@ def apply_arguments(parser):
     parser.add_argument('-W', '--width', dest='width', type=int)
     parser.add_argument('-H', '--height', dest='height', type=int)
     parser.add_argument('-s', '--style', dest='style',
-                        default='simple', choices=style_mapping.keys())
+                        default='ascii', choices=style_mapping.keys())
     parser.set_defaults(func=run)
     return parser
 

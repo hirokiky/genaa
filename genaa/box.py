@@ -66,6 +66,16 @@ class Box(object):
         )
 
 
+class ASCIIStyle(object):
+    space = ' '
+    upperleft = '+'
+    upperright = '+'
+    lowerleft = '+'
+    lowerright = '+'
+    vertical = '-'
+    horizontal = '|'
+
+
 class SimpleStyle(object):
     space = ' '
     upperleft = '┌'
@@ -86,18 +96,8 @@ class HashStyle(object):
     horizontal = '#'
 
 
-class ASCIIStyle(object):
-    space = ' '
-    upperleft = '+'
-    upperright = '+'
-    lowerleft = '+'
-    lowerright = '+'
-    vertical = '-'
-    horizontal = '|'
-
-
 style_mapping = {
+    'ascii': ASCIIStyle,
     'simple': SimpleStyle,
     'hash': HashStyle,
-    'ascii': ASCIIStyle,
 }
