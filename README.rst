@@ -1,10 +1,10 @@
-genaa, a AA generator
-======================
+genaa, a ASCII Art generator
+============================
 
 .. image:: https://travis-ci.org/hirokiky/genaa.png?branch=master
    :target: https://travis-ci.org/hirokiky/genaa
 
-genaa is a command line tool for generating ASCII art.
+genaa is a command line tool for generating ASCII Art.
 
 Install
 ---------
