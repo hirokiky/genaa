@@ -66,6 +66,26 @@ This example is using `hash` style which is used as comment block in Python::
     # This is genaa #
     #################
 
+--list
+^^^^^^^
+The list of styles is on `genaa box --list` command::
+
+    $ genaa box --list
+    ascii:
+    +-----------------------+
+    | Hello.                |
+    | How about this style? |
+    +-----------------------+
+
+    ccomment:
+    /************************
+    * Hello.                *
+    * How about this style? *
+    ************************/
+
+    hash:
+    #########################
+
 --align
 ^^^^^^^^
 `genaa box` command put the text at the left side of the box.

@@ -37,3 +37,24 @@ class TestBoxCommand(unittest.TestCase):
 | mio |
 +-----+
 '''.encode('utf-8'), out)
+
+
+class GenerateStyleListTest(unittest.TestCase):
+    def _getTarget(self):
+        from genaa.commands.box import generate_style_list
+        return generate_style_list
+
+    def _callFUT(self, styles):
+        return self._getTarget()(styles)
+
+    def test__style_list(self):
+        dummy_styles = ['ascii']
+        actual = self._callFUT(dummy_styles)
+        expected = '''\
+ascii:
++-----------------------+
+| Hello.                |
+| How about this style? |
++-----------------------+\
+'''
+        self.assertEqual(expected, actual)
