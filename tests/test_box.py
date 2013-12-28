@@ -117,7 +117,6 @@ mcccccccccv\
         self.assertEqual(expected, actual)
 
     def test_render__fixed_only_width(self):
-
         actual = self._makeOne(width=3, text="""\
 1
 23
