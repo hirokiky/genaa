@@ -105,7 +105,7 @@ mccccv\
     def test_render__fixed_only_height(self):
         actual = self._makeOne(height=3, text="""\
 123
-4567890
+4567890\n
 """).render()
         expected = """\
 gcccccccccr
