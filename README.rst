@@ -12,7 +12,9 @@ Install genaa by using pip.
 
 ::
 
-    pip install git+https://github.com/hirokiky/genaa
+    pip install genaa
+
+Now genaa is supporting only Python 3.3.
 
 Basic Usage
 ---------------
