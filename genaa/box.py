@@ -101,8 +101,19 @@ class HashStyle(object):
     horizontal = '#'
 
 
+class CCommentStyle(object):
+    space = ' '
+    upperleft = '/'
+    upperright = '*'
+    lowerleft = '*'
+    lowerright = '/'
+    vertical = '*'
+    horizontal = '*'
+
+
 style_mapping = {
     'ascii': ASCIIStyle,
     'simple': SimpleStyle,
     'hash': HashStyle,
+    'ccomment': CCommentStyle,
 }
