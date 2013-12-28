@@ -15,25 +15,25 @@ class TestBoxCommand(unittest.TestCase):
         out, err = self._callSUT(['genaa', 'box'])
         self.assertEqual(b'', err, msg=err.decode('utf-8'))
         self.assertEqual('''\
-+-+
-| |
-+-+
++---+
+|   |
++---+
 '''.encode('utf-8'), out)
 
     def test__with_input(self):
         out, err = self._callSUT(['genaa', 'box'], b'mio')
         self.assertEqual(b'', err, msg=err.decode('utf-8'))
         self.assertEqual('''\
-+---+
-|mio|
-+---+
++-----+
+| mio |
++-----+
 '''.encode('utf-8'), out)
 
     def test__argument_text_input(self):
         out, err = self._callSUT(['genaa', 'box', '--text', 'mio'])
         self.assertEqual(b'', err, msg=err.decode('utf-8'))
         self.assertEqual('''\
-+---+
-|mio|
-+---+
++-----+
+| mio |
++-----+
 '''.encode('utf-8'), out)

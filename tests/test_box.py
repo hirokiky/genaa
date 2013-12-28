@@ -29,9 +29,9 @@ class TestBox(unittest.TestCase):
     def test_render__autho_empty(self):
         actual = self._makeOne().render()
         expected = """\
-gcr
-h h
-mcv\
+gcccr
+h   h
+mcccv\
 """
         self.assertEqual(expected, actual)
 
@@ -43,62 +43,62 @@ mcv\
 """).render()
 
         expected = """\
-gcccr
-h1  h
-h345h
-h67 h
-mcccv\
+gcccccr
+h 1   h
+h 345 h
+h 67  h
+mcccccv\
 """
         self.assertEqual(expected, actual)
 
     def test_render__fixed_empty(self):
         actual = self._makeOne(2, 2).render()
         expected = """\
-gccr
-h  h
-h  h
-mccv\
+gccccr
+h    h
+h    h
+mccccv\
 """
         self.assertEqual(expected, actual)
 
     def test_render__fixed_fillup(self):
         actual = self._makeOne(2, 2, '1234').render()
         expected = """\
-gccr
-h12h
-h34h
-mccv\
+gccccr
+h 12 h
+h 34 h
+mccccv\
 """
         self.assertEqual(expected, actual)
 
     def test_render__fixed_overflow(self):
         actual = self._makeOne(2, 2, '12345').render()
         expected = """\
-gccr
-h12h
-h34h
-mccv\
+gccccr
+h 12 h
+h 34 h
+mccccv\
 """
         self.assertEqual(expected, actual)
 
     def test_render__fixed_enough(self):
         actual = self._makeOne(2, 2, '123').render()
         expected = """\
-gccr
-h12h
-h3 h
-mccv\
+gccccr
+h 12 h
+h 3  h
+mccccv\
 """
         self.assertEqual(expected, actual)
 
     def test_render__fixed_with_2_lines_text(self):
         actual = self._makeOne(2, 3, '1\n23456').render()
         expected = """\
-gccr
-h1 h
-h23h
-h45h
-mccv\
+gccccr
+h 1  h
+h 23 h
+h 45 h
+mccccv\
 """
         self.assertEqual(expected, actual)
 
@@ -108,11 +108,11 @@ mccv\
 4567890
 """).render()
         expected = """\
-gcccccccr
-h123    h
-h4567890h
-h       h
-mcccccccv\
+gcccccccccr
+h 123     h
+h 4567890 h
+h         h
+mcccccccccv\
 """
         self.assertEqual(expected, actual)
 
@@ -125,12 +125,12 @@ mcccccccv\
 7890
 """).render()
         expected = """\
-gcccr
-h1  h
-h23 h
-h456h
-h789h
-h0  h
-mcccv\
+gcccccr
+h 1   h
+h 23  h
+h 456 h
+h 789 h
+h 0   h
+mcccccv\
 """
         self.assertEqual(expected, actual)

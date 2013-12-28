@@ -62,11 +62,13 @@ class Box(object):
                          [self.style.space * self.body_width] * missed)
         filled = [row.ljust(self.body_width, self.style.space)
                   for row in height_filled]
+        padded = [row.center(self.body_width+2, self.style.space)
+                  for row in filled]
 
-        vertical = self.style.vertical * self.body_width
+        vertical = self.style.vertical * (self.body_width + 2)
         return '\n'.join(
             [self.style.upperleft + vertical + self.style.upperright] +
-            [self.style.horizontal + row + self.style.horizontal for row in filled] +
+            [self.style.horizontal + row + self.style.horizontal for row in padded] +
             [self.style.lowerleft + vertical + self.style.lowerright]
         )
 
