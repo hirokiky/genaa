@@ -20,7 +20,7 @@ setup(
             "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.3",
             "Development Status :: 3 - Alpha",
-            "Topic :: Processing :: Filters",
+            "Topic :: Text Processing :: Filters",
             "License :: OSI Approved :: MIT License",
     ],
     entry_points={
