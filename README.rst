@@ -75,3 +75,4 @@ It also supports putting the text on center and right::
     +----------------------+
     |        Hello         |
     +----------------------+
+
