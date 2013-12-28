@@ -12,7 +12,8 @@ def apply_arguments(parser):
                         default='ascii', choices=style_mapping.keys())
     parser.add_argument('-a', '--align', choices=('left', 'center', 'right'),
                         default='left', dest='align')
-    parser.add_argument('-l', '--list', default=False, action='store_true')
+    parser.add_argument('-l', '--list', default=False, action='store_true',
+                        help='Displaying examples for each styles')
     parser.set_defaults(func=run)
     return parser
 

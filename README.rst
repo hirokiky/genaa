@@ -43,6 +43,7 @@ You can specify these arguments to `genaa box`::
       -W WIDTH, --width WIDTH
       -H HEIGHT, --height HEIGHT
       -s {ccomment,ascii,hash,simple}, --style {ccomment,ascii,hash,simple}
+      -l, --list            Displaying examples for each styles
 
 --width and --height
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
