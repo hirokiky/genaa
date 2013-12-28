@@ -6,7 +6,7 @@ class Box(object):
     min_width = 1
     min_height = 1
 
-    def __init__(self, style, width=None, height=None, text=''):
+    def __init__(self, style, width=None, height=None, align='left', text=''):
         if width is None:
             self._width_auto = True
         else:
@@ -27,6 +27,7 @@ class Box(object):
                                  height, self.min_height)
 
         self.style = style
+        self.align = align
         self.text = text
 
     @property
@@ -60,8 +61,13 @@ class Box(object):
         missed = self.body_height - len(self.body_content)
         height_filled = (self.body_content[:self.body_height] +
                          [self.style.space * self.body_width] * missed)
-        filled = [row.ljust(self.body_width, self.style.space)
+
+        align = {'right': lambda row: row.rjust,
+                 'center': lambda row: row.center,
+                 'left': lambda row: row.ljust}
+        filled = [align.get(self.align, 'left')(row)(self.body_width, self.style.space)
                   for row in height_filled]
+
         padded = [row.center(self.body_width+2, self.style.space)
                   for row in filled]
 
