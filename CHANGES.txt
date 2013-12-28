@@ -10,3 +10,4 @@ Supporting:
 
   * Auto specifying width and height
   * Changing style of boxes
+  * Align specifying (right, center, left)
