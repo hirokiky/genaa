@@ -36,11 +36,6 @@ genaa box
 -------------------
 You can specify these arguments to `genaa box`::
 
-    genaa box --help
-    usage: genaa box [-h] [-t TEXT] [-W WIDTH] [-H HEIGHT]
-                     [-s {ccomment,ascii,hash,simple}] [-a {left,center,right}]
-
-    optional arguments:
       -h, --help            show this help message and exit
       -t TEXT, --text TEXT  Passing text by argument into box
       -W WIDTH, --width WIDTH
@@ -60,7 +55,7 @@ But, you can specify these width and height of the box manually, like this::
     +----------------------+
 
 --style
-----------
+^^^^^^^^
 This example is using `hash` style which is used as comment block in Python::
 
     $ echo -en 'Hello world!\nThis is genaa' | genaa box --style=hash
@@ -70,7 +65,7 @@ This example is using `hash` style which is used as comment block in Python::
     #################
 
 --align
-------------
+^^^^^^^^
 `genaa box` command put the text at the left side of the box.
 It also supports putting the text on center and right::
 
