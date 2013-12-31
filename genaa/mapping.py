@@ -47,7 +47,4 @@ class Mapping(object):
 
         @property
         def value(self):
-            try:
-                return self.outer.mapping[self.coordinate.y][self.coordinate.x]
-            except IndexError:
-                return None
+            return self.outer.mapping[self.coordinate.y][self.coordinate.x]
