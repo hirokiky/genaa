@@ -71,10 +71,10 @@ class TestMapping(unittest.TestCase):
         target = self._makeOne(['01',
                                 '23',
                                 '45'])
-        self.assertRaises(ValueError, target.Cell, 3, 0)
+        self.assertRaises(IndexError, target.Cell, 3, 0)
 
     def test__cell_value_with_too_big_y(self):
         target = self._makeOne(['01',
                                 '23',
                                 '45'])
-        self.assertRaises(ValueError, target.Cell, 0, 4)
+        self.assertRaises(IndexError, target.Cell, 0, 4)

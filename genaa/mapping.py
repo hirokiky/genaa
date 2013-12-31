@@ -18,9 +18,9 @@ class Mapping(object):
     class Cell(object):
         def __init__(self, outer, x, y):
             if not 0 <= y < len(outer.mapping):
-                raise ValueError
+                raise IndexError
             if not 0 <= x < len(outer.mapping[y]):
-                raise ValueError
+                raise IndexError
 
             self.outer = outer
             self.coordinate = Point(x, y)
