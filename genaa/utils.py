@@ -15,3 +15,23 @@ def chunks(seq, chunk_size):
     """
     for i in range(0, len(seq), chunk_size):
         yield seq[i:i+chunk_size]
+
+
+def zipped_iter(iter1, iter2):
+    iter1_finished = False
+    iter2_finished = False
+
+    iter1 = iter(iter1)
+    iter2 = iter(iter2)
+
+    while not iter1_finished or not iter2_finished:
+        if not iter1_finished:
+            try:
+                yield iter1.__next__()
+            except StopIteration:
+                iter1_finished = True
+        if not iter2_finished:
+            try:
+                yield iter2.__next__()
+            except StopIteration:
+                iter2_finished = True

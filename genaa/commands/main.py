@@ -1,10 +1,11 @@
 import argparse
 
-from genaa.commands import box
+from genaa.commands import box, block
 
 
 subcommand_mapping = {
-    'box': box
+    'box': box,
+    'block': block,
 }
 
 
