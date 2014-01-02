@@ -16,11 +16,10 @@ def apply_arguments(parser):
 
 def generate_style_list(styles=style_mapping):
     example_text = """\
-* * *** *   *   ***   **
-* * *   *   *   * *   **
-*** *** *   *   * *  **
-* * *   *   *   * *
-* * *** *** *** *** **\
+ *
+  *  * *    *  *    *
+***   **  * *   **   *
+      *    **  **  ***\
 """.split('\n')
     examples = []
     for style in sorted(styles):
