@@ -4,7 +4,21 @@ genaa, a ASCII Art generator
 .. image:: https://travis-ci.org/hirokiky/genaa.png?branch=master
    :target: https://travis-ci.org/hirokiky/genaa
 
-genaa is a command line tool for generating ASCII Art.
+genaa is a command line tool for generating ASCII Art::
+
+      +-----+   +---+   +-----+     +-----+   +-----+
+      |     |   |   |   |     |     |     |   |     |
+    +-+---+ | +-+   +-+ | +---+-+ +-+---+ | +-+---+ |
+    | |   | | |       | | |   | | | |   | | | |   | |
+    | |   | | | +-----+ | |   | | | |   | | | |   | |
+    | |   | | | |       | |   | | | |   | | | |   | |
+    +-+---+ | +-+-----+ | |   | | +-+---+ | +-+---+ |
+      |     |   |     | | |   | |   |     |   |     |
+      +---+ |   +-----+ +-+   +-+   +-----+   +-----+
+          | |
+      +---+-+
+      |   |
+      +---+
 
 Install
 ---------
@@ -16,23 +30,52 @@ Install genaa by using pip.
 
 Now genaa is supporting only Python 3.3.
 
+
 Basic Usage
 ---------------
-Now genaa can only generate a box::
+
+genaa has some sub-commands to render various ASCII Arts:
+
+* box
+* block
+
+`genaa box` is the most basic and simple feature.
+It can render a block containing text input by user::
 
     $ genaa box --text Hello!
     +--------+
     | Hello! |
     +--------+
 
-Above example is as one of simple command line tools.
-But, genaa usually behave as a filter command, like this::
+`genaa block` is a command to render some free shape blocks.
+It takes some 'dots' and translate it to ASCII Art blocks.
+This example show you how to create a well-known TETRIS block from command line::
+
+    $ genaa block --text '
+    > ***
+    >  * '
+
+    +-----+
+    |     |
+    +-+ +-+
+      | |
+      +-+
+
+As filter
+-----------
+
+Above examples are used as one of simple command line tools, using --text argument.
+But, genaa usually behaves as a filter command, like this::
 
     $ echo -en 'Hello world!\nThis is genaa' | genaa box
     +---------------+
     | Hello world!  |
     | This is genaa |
     +---------------+
+
+Generally, it is recommended to use from some editors.
+Most editors has a feature to pass the selected text to some shell command
+and input returned value. On Emacs, you can use 'shell-command-on-region'.
 
 genaa box
 -------------------
@@ -69,7 +112,7 @@ This example is using `hash` style which is used as comment block in Python::
 
 --list
 ^^^^^^^
-The list of styles is on `genaa box --list` command::
+The list of styles are on `genaa box --list` command::
 
     $ genaa box --list
     ascii:
@@ -96,4 +139,54 @@ It also supports putting the text on center and right::
     +----------------------+
     |        Hello         |
     +----------------------+
+
+genaa block
+------------
+You can specify these arguments to `genaa block`::
+
+  -h, --help            show this help message and exit
+  -t TEXT, --text TEXT  Passing text by argument into block
+  -s {ascii,simple}, --style {ascii,simple}
+  -l, --list            Displaying examples for each styles
+
+--style
+^^^^^^^^
+This example is using `simple` style.
+You can see this clearly by some mono-space fonts::
+
+    $ genaa block --style=simple
+    **
+    * *
+     *
+    ┌───┐
+    │   │
+    │ ┌─┼─┐
+    │ │ │ │
+    └─┼─┼─┘
+      │ │
+      └─┘
+
+--list
+^^^^^^^^
+
+The list of styles are on `genaa block --list` command::
+
+    $ genaa block --list
+    ascii:
+      +-+
+      | |
+      +-+-+   +-+ +-+       +-+   +-+       +-+
+        | |   | | | |       | |   | |       | |
+    +---+ |   +-+-+ |   +-+ | |   +-+---+   +-+-+
+    |     |     |   |   | | | |     |   |     | |
+    +-----+     | +-+   +-+-+ |   +-+ +-+ +---+ |
+                | |       |   |   |   |   |     |
+                +-+       +---+   +---+   +-----+
+
+    simple:
+      ┌─┐
+      │ │
+      └─┼─┐   ┌─┐ ┌─┐       ┌─┐   ┌─┐       ┌─┐
+        │ │   │ │ │ │       │ │   │ │       │ │
+    ┌───┘ │   └─┼─┘ │   ┌─┐ │ │   └─┼───┐   └─┼─┐
 
