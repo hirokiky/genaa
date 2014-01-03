@@ -8,7 +8,7 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 setup(
     name='genaa',
-    version='0.1',
+    version='0.2',
     packages=find_packages(),
     url='https://github.com/hirokiky/genaa',
     license='MIT',
