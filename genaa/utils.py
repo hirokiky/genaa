@@ -27,11 +27,11 @@ def zipped_iter(iter1, iter2):
     while not iter1_finished or not iter2_finished:
         if not iter1_finished:
             try:
-                yield iter1.__next__()
+                yield next(iter1)
             except StopIteration:
                 iter1_finished = True
         if not iter2_finished:
             try:
-                yield iter2.__next__()
+                yield next(iter2)
             except StopIteration:
                 iter2_finished = True

@@ -1,3 +1,4 @@
+#! -*- coding: utf-8 -*-
 """
 Rendering a free shape block.
 
@@ -149,8 +150,7 @@ crosses will be rendered according to the rule::
 The '   a' means 'upper left: False, upper right: False, lower left: False, lower right: True'
 so the upper left of style will be rendered.
 """
-import itertools
-
+from genaa.compat import zip_longest_
 from genaa import utils as genaa_utils
 
 
@@ -245,9 +245,9 @@ def render_block(mapping, style):
                    row in two_x_two(mapping)]
 
     body_lines = [''.join(genaa_utils.zipped_iter(b, h))
-                  for b, h in itertools.zip_longest(body_lines, horizontal_lines, fillvalue=[])]
+                  for b, h in zip_longest_(body_lines, horizontal_lines, fillvalue=[])]
     border_lines = [''.join(genaa_utils.zipped_iter(v, c))
-                    for v, c in itertools.zip_longest(vertical_lines, cross_lines, fillvalue=[])]
+                    for v, c in zip_longest_(vertical_lines, cross_lines, fillvalue=[])]
 
     mapping = list(genaa_utils.zipped_iter(body_lines, border_lines))
     return '\n'.join(slice_wrapper(mapping))
@@ -300,27 +300,27 @@ def generate_cross_pattern(style):
 
 
 class ASCIIStyle(object):
-    space = ' '
-    body = ' '
-    upperleft = '+'
-    upperright = '+'
-    lowerleft = '+'
-    lowerright = '+'
-    vertical = '-'
-    horizontal = '|'
-    cross = '+'
+    space = u' '
+    body = u' '
+    upperleft = u'+'
+    upperright = u'+'
+    lowerleft = u'+'
+    lowerright = u'+'
+    vertical = u'-'
+    horizontal = u'|'
+    cross = u'+'
 
 
 class SimpleStyle(object):
-    space = ' '
-    body = ' '
-    upperleft = '┌'
-    upperright = '┐'
-    lowerleft = '└'
-    lowerright = '┘'
-    vertical = '─'
-    horizontal = '│'
-    cross = '┼'
+    space = u' '
+    body = u' '
+    upperleft = u'┌'
+    upperright = u'┐'
+    lowerleft = u'└'
+    lowerright = u'┘'
+    vertical = u'─'
+    horizontal = u'│'
+    cross = u'┼'
 
 
 style_mapping = {
