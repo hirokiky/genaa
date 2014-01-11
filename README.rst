@@ -28,7 +28,7 @@ Install genaa by using pip.
 
     pip install genaa
 
-Now genaa is supporting only Python 3.3.
+Now genaa is supporting Python 2.7 and 3.3.
 
 
 Basic Usage

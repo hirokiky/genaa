@@ -8,7 +8,7 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 setup(
     name='genaa',
-    version='0.2',
+    version='0.3',
     packages=find_packages(),
     url='https://github.com/hirokiky/genaa',
     license='MIT',
@@ -17,6 +17,8 @@ setup(
     description='genaa, a ASCII Art generator.',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
+            "Programming Language :: Python :: 2",
+            "Programming Language :: Python :: 2.7",
             "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.3",
             "Development Status :: 3 - Alpha",
