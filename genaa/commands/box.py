@@ -1,6 +1,7 @@
 import sys
 
 from genaa.box import Box, style_mapping
+from genaa.compat import u
 
 
 def apply_arguments(parser):
@@ -19,7 +20,7 @@ def apply_arguments(parser):
 
 
 def generate_style_list(styles=style_mapping):
-    example_text = """\
+    example_text = u"""\
 Hello.
 How about this style?\
 """
@@ -42,6 +43,6 @@ def run(opt):
 
     box = Box(style_mapping[opt.style],
               width=opt.width, height=opt.height,
-              align=opt.align, text=text)
+              align=opt.align, text=u(text))
 
     return box.render()

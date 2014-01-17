@@ -46,7 +46,7 @@ def chunk_strings(string, chunk_size):
 def str_width(string):
     """Return width of string
 
-    >>> str_width('0123456789')
+    >>> str_width(u'0123456789')
     10
     >>> str_width(u'あいうえお')
     10
@@ -54,7 +54,7 @@ def str_width(string):
     return sum(_char_width(c) for c in string)
 
 
-def rjust(string, width, fillchar=' '):
+def rjust(string, width, fillchar=u' '):
     s_width = str_width(string)
     if s_width > width:
         return string
@@ -64,7 +64,7 @@ def rjust(string, width, fillchar=' '):
     return fillchar * int((width - s_width) / f_width) + string
 
 
-def ljust(string, width, fillchar=' '):
+def ljust(string, width, fillchar=u' '):
     s_width = str_width(string)
     if s_width > width:
         return string
@@ -74,15 +74,15 @@ def ljust(string, width, fillchar=' '):
     return string + fillchar * int((width - s_width) / f_width)
 
 
-def center(string, width, fillchar=' '):
+def center(string, width, fillchar=u' '):
     s_width = str_width(string)
     if s_width > width:
         return string
 
     f_width = str_width(fillchar)
 
-    l_fillstr = fillchar * math.floor((width - s_width) / f_width / 2)
-    r_fillstr = fillchar * math.ceil((width - s_width) / f_width / 2)
+    l_fillstr = fillchar * int(math.floor((width - s_width) / f_width / 2.0))
+    r_fillstr = fillchar * int(math.ceil((width - s_width) / f_width / 2.0))
     return l_fillstr + string + r_fillstr
 
 

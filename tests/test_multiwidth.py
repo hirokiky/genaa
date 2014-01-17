@@ -11,16 +11,16 @@ class TestChunks(unittest.TestCase):
         return self._getTarget()(*args, **kwargs)
 
     def test__one_chunk(self):
-        actual = self._callFUT('0123', 4)
-        self.assertEqual(['0123'], list(actual))
+        actual = self._callFUT(u'0123', 4)
+        self.assertEqual([u'0123'], list(actual))
 
     def test__divided_equally(self):
-        actual = self._callFUT('01234567', 4)
-        self.assertEqual(['0123', '4567'], list(actual))
+        actual = self._callFUT(u'01234567', 4)
+        self.assertEqual([u'0123', u'4567'], list(actual))
 
     def test__with_a_rest(self):
-        actual = self._callFUT('01234', 4)
-        self.assertEqual(['0123', '4'], list(actual))
+        actual = self._callFUT(u'01234', 4)
+        self.assertEqual([u'0123', u'4'], list(actual))
 
 
 class TestStrWidth(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestStrWidth(unittest.TestCase):
         return self._getTarget()(*args, **kwargs)
 
     def test__ascii(self):
-        actual = self._callFUT('0123')
+        actual = self._callFUT(u'0123')
         self.assertEqual(4, actual)
 
     def test__japanese(self):

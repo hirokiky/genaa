@@ -1,6 +1,7 @@
 import sys
 
 from genaa.block import render_block, style_mapping
+from genaa.compat import u
 
 
 def apply_arguments(parser):
@@ -15,7 +16,7 @@ def apply_arguments(parser):
 
 
 def generate_style_list(styles=style_mapping):
-    example_text = """\
+    example_text = u"""\
  *
   *  * *    *  *    *
 ***   **  * *   **   *
@@ -37,4 +38,4 @@ def run(opt):
     else:
         text = sys.stdin.read()
 
-    return render_block(text.split('\n'), style_mapping[opt.style])
+    return render_block(u(text).split('\n'), style_mapping[opt.style])
