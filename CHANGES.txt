@@ -1,6 +1,10 @@
 Changes
 ----------
 
+0.4 (2013-1-17)
+^^^^^^^^^^^^^^^^^^^^^
+Multi-width characters support (like japanese)
+
 0.3 (2013-1-12)
 ^^^^^^^^^^^^^^^^^^^^^
 Python2 support (2.7 only)
