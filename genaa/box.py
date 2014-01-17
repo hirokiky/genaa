@@ -82,43 +82,43 @@ class Box(object):
 
 
 class ASCIIStyle(object):
-    space = ' '
-    upperleft = '+'
-    upperright = '+'
-    lowerleft = '+'
-    lowerright = '+'
-    vertical = '-'
-    horizontal = '|'
+    space = u' '
+    upperleft = u'+'
+    upperright = u'+'
+    lowerleft = u'+'
+    lowerright = u'+'
+    vertical = u'-'
+    horizontal = u'|'
 
 
 class SimpleStyle(object):
-    space = ' '
-    upperleft = '┌'
-    upperright = '┐'
-    lowerleft = '└'
-    lowerright = '┘'
-    vertical = '─'
-    horizontal = '│'
+    space = u' '
+    upperleft = u'┌'
+    upperright = u'┐'
+    lowerleft = u'└'
+    lowerright = u'┘'
+    vertical = u'─'
+    horizontal = u'│'
 
 
 class HashStyle(object):
-    space = ' '
-    upperleft = '#'
-    upperright = '#'
-    lowerleft = '#'
-    lowerright = '#'
-    vertical = '#'
-    horizontal = '#'
+    space = u' '
+    upperleft = u'#'
+    upperright = u'#'
+    lowerleft = u'#'
+    lowerright = u'#'
+    vertical = u'#'
+    horizontal = u'#'
 
 
 class CCommentStyle(object):
-    space = ' '
-    upperleft = '/'
-    upperright = '*'
-    lowerleft = '*'
-    lowerright = '/'
-    vertical = '*'
-    horizontal = '*'
+    space = u' '
+    upperleft = u'/'
+    upperright = u'*'
+    lowerleft = u'*'
+    lowerright = u'/'
+    vertical = u'*'
+    horizontal = u'*'
 
 
 style_mapping = {

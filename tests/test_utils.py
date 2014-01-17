@@ -69,9 +69,9 @@ class TestStrWidth(unittest.TestCase):
         self.assertEqual(4, actual)
 
     def test__japanese(self):
-        actual = self._callFUT('あいうえお')
+        actual = self._callFUT(u'あいうえお')
         self.assertEqual(10, actual)
 
     def test__mix(self):
-        actual = self._callFUT('0123あいうえお')
+        actual = self._callFUT(u'0123あいうえお')
         self.assertEqual(14, actual)

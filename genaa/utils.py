@@ -66,7 +66,7 @@ def str_width(string):
 
     >>> str_width('0123456789')
     10
-    >>> str_width('あいうえお')
+    >>> str_width(u'あいうえお')
     10
     """
     return sum(_char_width(c) for c in string)
