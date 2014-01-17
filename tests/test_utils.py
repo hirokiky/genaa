@@ -54,3 +54,24 @@ class TestZippedIter(unittest.TestCase):
                                'bbbb')
         expceted = ['a', 'b', 'a', 'b', 'a', 'b', 'b']
         self.assertEqual(expceted, list(actual))
+
+
+class TestStrWidth(unittest.TestCase):
+    def _getTarget(self):
+        from genaa.utils import str_width
+        return str_width
+
+    def _callFUT(self, *args, **kwargs):
+        return self._getTarget()(*args, **kwargs)
+
+    def test__ascii(self):
+        actual = self._callFUT('0123')
+        self.assertEqual(4, actual)
+
+    def test__japanese(self):
+        actual = self._callFUT('あいうえお')
+        self.assertEqual(10, actual)
+
+    def test__mix(self):
+        actual = self._callFUT('0123あいうえお')
+        self.assertEqual(14, actual)
