@@ -1,7 +1,7 @@
 #! -*- coding: utf-8 -*-
 from functools import partial
 
-from genaa import utils as genaa_utils
+from genaa import multiwidth as genaa_multiwidth
 
 
 class Box(object):
@@ -35,7 +35,7 @@ class Box(object):
     @property
     def body_width(self):
         if self._width_auto:
-            return max(map(genaa_utils.str_width, self.text.split('\n'))) or 1
+            return max(map(genaa_multiwidth.str_width, self.text.split('\n'))) or 1
         else:
             return self._width
 
@@ -56,7 +56,7 @@ class Box(object):
         if self._width_auto:
             return content
         else:
-            return sum((list(genaa_utils.chunks(row, self._width))
+            return sum((list(genaa_multiwidth.chunk_strings(row, self._width))
                         for row in content), [])
 
     def render(self):
@@ -64,13 +64,13 @@ class Box(object):
         height_filled = (self.body_content[:self.body_height] +
                          [self.style.space * self.body_width] * missed)
 
-        align = {'right': lambda row: partial(genaa_utils.rjust, row),
-                 'center': lambda row: partial(genaa_utils.center, row),
-                 'left': lambda row: partial(genaa_utils.ljust, row)}
+        align = {'right': lambda row: partial(genaa_multiwidth.rjust, row),
+                 'center': lambda row: partial(genaa_multiwidth.center, row),
+                 'left': lambda row: partial(genaa_multiwidth.ljust, row)}
         filled = [align.get(self.align, 'left')(row)(self.body_width, self.style.space)
                   for row in height_filled]
 
-        padded = [genaa_utils.center(row, self.body_width+2, self.style.space)
+        padded = [genaa_multiwidth.center(row, self.body_width+2, self.style.space)
                   for row in filled]
 
         vertical = self.style.vertical * (self.body_width + 2)

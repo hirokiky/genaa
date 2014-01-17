@@ -150,8 +150,8 @@ crosses will be rendered according to the rule::
 The '   a' means 'upper left: False, upper right: False, lower left: False, lower right: True'
 so the upper left of style will be rendered.
 """
-from genaa.compat import zip_longest_
 from genaa import utils as genaa_utils
+from genaa.compat import zip_longest_
 
 
 def wrap_mapping(mapping, fillwith=' '):
